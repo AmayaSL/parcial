@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:parcial/config/theme.dart';
 import 'package:parcial/presentation/screens/homeScreen.dart';
 
-void main(List<String> args) {
-  return runApp(const MyApp());
+void main (){
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -31,11 +31,22 @@ class ListCharacter extends StatelessWidget {
   final List<CharacterEntity> character;
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: character.length,
-        itemBuilder: (context, index) {
-          return Text(character[index].nombre.toString());
-        });
-  }
+Widget build(BuildContext context) {
+  return ListView.builder(
+    itemCount: character.length,
+    itemBuilder: (context, index) {
+      return Card(
+          margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              character[index].nombre.toString(),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          )
+      );
+    },
+  );
+}
+
 }

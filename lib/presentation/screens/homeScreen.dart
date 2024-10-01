@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
   static final List<Map<String, dynamic>> _menu = [
     {"title": 'Character', "widget": CharacterScreen()},
     {"title": 'Planets', "widget": PlanetScreen()},
-    {"title": 'Transformation', "widget": TrasformationScreen()},
+    {"title": 'Transformation', "widget": TransformationScreen()},
   ];
 
   @override

@@ -1,17 +1,13 @@
-class PlanetEntity {
-  final int id;
-  final String? name;
-  final bool isDestroyed;
-  final String? description;
-  final String? image;
-  final List<dynamic> characters; 
+class PlanetEntity{
+  final int id ;
+  final String? nombre;
+  final bool? destruido;
+  final String? descripcion;
+  final String? img;
 
-  PlanetEntity({
-    required this.id,
-    required this.name,
-    required this.isDestroyed,
-    this.description,
-    this.image,
-    required this.characters, 
-  });
+  PlanetEntity({required this.id, 
+   this.nombre, 
+   this.destruido, 
+   this.descripcion, 
+   this.img});
 }

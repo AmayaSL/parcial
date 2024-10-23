@@ -3,28 +3,23 @@ import 'package:parcial/entity/transformation_entity.dart';
 import 'package:parcial/models/transformation.dart';
 
 class GetTransformation {
-  static const url = "https://dragonball-api.com/api";
-
+  static const url = "https://dragonball-api.com/api/characters/";
   final _dio = Dio();
 
-  Future<List<TransformationEntity>> getTransformations() async {
-    final response = await _dio.get("$url/characters/");
-    final temp = response.data["transformations"] as List;
-    List<TransformationEntity> transformations = [];
-    Transformation transformationModel;
-
+  Future<List<TransformationEntity>> getTF() async {
+    final response = await _dio.get("id");
+    final temp = response.data["items"];
+    List<TransformationEntity> TF = [];
+    Transformation chModel;
     for (var i = 0; i < temp.length; i++) {
-      transformationModel = Transformation.fromJsonMap(temp[i]);
-      transformations.add(TransformationEntity(
-        id: transformationModel.id,
-        nombre: transformationModel.name,
-        descripcion: transformationModel.description,
-        img: transformationModel.image,
+      chModel = Transformation.fromJsonMap(temp[i]);
+      TF.add(TransformationEntity(
+        id: chModel.id,
+        nombre: chModel.name,
+        poder: chModel.ki,
+        img: chModel.image,
       ));
     }
-
-    return transformations;
+    return TF;
   }
 }
-
-

@@ -4,28 +4,23 @@ import 'package:parcial/models/planet.dart';
 
 class GetPlanet {
   static const url = "https://dragonball-api.com/api";
-
   final _dio = Dio();
 
-  Future<List<PlanetEntity>> getPlanets() async {
+  Future<List<PlanetEntity>> getPL() async {
     final response = await _dio.get("$url/planets");
     final temp = response.data["items"];
-    List<PlanetEntity> planets = [];
-    Planet planetModel;
-
+    List<PlanetEntity> PL = [];
+    Planet chModel;
     for (var i = 0; i < temp.length; i++) {
-      planetModel = Planet.fromJsonMap(temp[i]);
-      planets.add(PlanetEntity(
-        id: planetModel.id,
-        name: planetModel.name,
-        isDestroyed: planetModel.isDestroyed,
-        description: planetModel.description,
-        image: planetModel.image,
-        characters: planetModel.characters, 
+      chModel = Planet.fromJsonMap(temp[i]);
+      PL.add(PlanetEntity(
+        id: chModel.id,
+        nombre: chModel.name,
+        destruido: chModel.isDestroyed,
+        descripcion: chModel.description,
+        img: chModel.image,
       ));
     }
-
-    return planets;
+    return PL;
   }
 }
-
